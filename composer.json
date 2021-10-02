@@ -1,0 +1,21 @@
+{
+    "name": "andrew/blog",
+    "description": "Blog on PHP and MySQL",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Andrew\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrew",
+            "email": "elbroandrew@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5"
+    }
+}
