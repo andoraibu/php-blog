@@ -12,4 +12,9 @@ $app->get('/', function (Request $request, Response $response, $args) {
     return $response;
 });
 
+$app->get('/about', function (Request $request, Response $response, $args) {
+    $response->getBody()->write("About");
+    return $response;
+});
+
 $app->run();
