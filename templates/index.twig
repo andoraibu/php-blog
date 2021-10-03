@@ -12,9 +12,9 @@
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="{{ post.title|escape }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ post.title|escape }}</h5>
+                    <a href="/{{ post.url_key }}"><h5 class="card-title">{{ post.title|escape }}</h5></a>
                     <p class="card-text">{{ post.description|escape }}</p>
-                    <a href="/{{ post.url_key }}" class="btn btn-primary">Read more</a>
+                    <a href="/{{ post.url_key }}">Read more</a>
                 </div>
             </div>
         </div>

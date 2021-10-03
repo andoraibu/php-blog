@@ -32,7 +32,7 @@ $postMapper = new PostMapper($connection);
 $app = AppFactory::create();
 
 $app->get('/', function (Request $request, Response $response, $args) use ($view, $postMapper) {
-    $posts = $postMapper->getList();
+    $posts = $postMapper->getList('ASC');
     $body = $view->render('index.twig', [
         'posts' => $posts
     ]);

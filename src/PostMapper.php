@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Blog;
 
+use mysql_xdevapi\Exception;
 use PDO;
 
 class PostMapper
@@ -36,9 +37,13 @@ class PostMapper
         return array_shift($result);
     }
 
-    public function getList(): ?array
+    public function getList(string $direction): ?array
     {
-        $statement = $this->connection->prepare('SELECT * FROM post ORDER BY published_date DESC ');
+        if (!in_array($direction, ['DESC', 'ASC']))
+        {
+            throw new Exception('Direction order is not supported.');
+        }
+        $statement = $this->connection->prepare('SELECT * FROM post ORDER BY published_date '. $direction);
         $statement->execute();
         return $statement->fetchAll();
     }
