@@ -3,77 +3,19 @@
 {% block body %}
 <div class="container">
     <h1 class="mb-3 mt-3">Welcome to my Blog!</h1>
+    {% for post in posts %}
     <div class="container row">
         <div class="p-1">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
+                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="{{ post.title|escape }}">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="/blog-post-1" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-1">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="/blog-post-2" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-1">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">{{ post.title|escape }}</h5>
+                    <p class="card-text">{{ post.description|escape }}</p>
+                    <a href="/blog-post-1" class="btn btn-primary">Read more</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container row">
-        <div class="p-1">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-1">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-1">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
