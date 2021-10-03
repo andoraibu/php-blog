@@ -21,6 +21,7 @@ try {
     $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch (PDOException $exception){
     echo 'Database error: ' . $exception->getMessage();
+    die();
 }
 
 
