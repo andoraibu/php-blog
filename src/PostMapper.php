@@ -19,9 +19,19 @@ class PostMapper
         $this->connection = $connection;
     }
 
+    /**
+     * @param string $urlKey
+     * @return array
+     */
     public function getByUrlKey(string $urlKey): array
     {
-        $this->connection->prepare('SELECT * FROM post WHERE url_key = :url_key');
+        $statement = $this->connection->prepare('SELECT * FROM post WHERE url_key = :url_key');
+        $statement->execute([
+            'url_key' => $urlKey
+        ]);
+
+        $result = $statement->fetchAll();
+        return array_shift($result);
     }
 
 }
