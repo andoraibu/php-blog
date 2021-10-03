@@ -1,4 +1,6 @@
 <?php
+
+use Blog\PostMapper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -23,6 +25,8 @@ try {
     echo 'Database error: ' . $exception->getMessage();
     die();
 }
+
+$postMapper = new PostMapper($connection);
 
 
 $app = AppFactory::create();
