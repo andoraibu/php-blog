@@ -3,8 +3,11 @@
 {% block body %}
 <div class="container">
     <h1 class="mb-3 mt-3">Welcome to my Blog!</h1>
+    {% set rowCount=1 %}
     {% for post in posts %}
-    <div class="container row">
+        {% if rowCount == 1 %}
+        <div class="container row">
+        {% endif %}
         <div class="p-1">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="https://dummyimage.com/300x200/685ba6/f7f8ff.jpg" alt="{{ post.title|escape }}">
@@ -15,7 +18,13 @@
                 </div>
             </div>
         </div>
-    </div>
+        {% if rowCount == 1 %}
+        </div>
+        {% endif %}
+        {% set rowCount += 1 %}
+        {% if rowCount > 3 %}
+            {% set rowCount = 1 %}
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
