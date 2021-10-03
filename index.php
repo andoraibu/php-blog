@@ -45,9 +45,10 @@ $app->get('/about', function (Request $request, Response $response, $args) use (
     return $response;
 });
 
-$app->get('/{url_key}', function (Request $request, Response $response, $args) use ($view) {
+$app->get('/{url_key}', function (Request $request, Response $response, $args) use ($view, $postMapper) {
+    $post = $postMapper->getByUrlKey((string) $args['url_key']);
     $body = $view->render('post.twig', [
-        'url_key' => $args['url_key']
+        'post' => $post
     ]);
     $response->getBody()->write($body);
     return $response;
