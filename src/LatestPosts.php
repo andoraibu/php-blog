@@ -15,7 +15,7 @@ class LatestPosts
     /**
      * @param PDO $connection
      */
-    public function __constructor(PDO $connection )
+    public function __construct(PDO $connection )
     {
         $this->connection = $connection;
     }

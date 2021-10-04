@@ -1,5 +1,6 @@
 <?php
 
+use Blog\LatestPosts;
 use Blog\PostMapper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -31,8 +32,9 @@ $postMapper = new PostMapper($connection);
 
 $app = AppFactory::create();
 
-$app->get('/', function (Request $request, Response $response, $args) use ($view, $postMapper) {
-    $posts = $postMapper->getList('ASC');
+$app->get('/', function (Request $request, Response $response, $args) use ($view, $connection) {
+    $latestPosts = new LatestPosts($connection);
+    $posts = $latestPosts->get(2);
     $body = $view->render('index.twig', [
         'posts' => $posts
     ]);
