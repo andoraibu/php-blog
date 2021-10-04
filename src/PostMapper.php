@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Blog;
 
-use mysql_xdevapi\Exception;
+use Exception;
 use PDO;
 
 class PostMapper
@@ -37,6 +37,11 @@ class PostMapper
         return array_shift($result);
     }
 
+    /**
+     * @param string $direction
+     * @return array|null
+     * @throws Exception
+     */
     public function getList(string $direction): ?array
     {
         if (!in_array($direction, ['DESC', 'ASC']))
