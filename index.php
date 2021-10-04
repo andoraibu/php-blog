@@ -52,7 +52,7 @@ $app->get('/about', function (Request $request, Response $response) use ($view) 
 $app->get('/blog[/{page}]', function (Request $request, Response $response) use ($view, $connection) {
     $latestPosts = new LatestPosts($connection);
     $posts = $latestPosts->get(2);
-    $body = $view->render('index.twig', [
+    $body = $view->render('blog.twig', [
         'posts' => $posts
     ]);
     $response->getBody()->write($body);
