@@ -29,6 +29,8 @@ class AssetExtension extends AbstractExtension
     {
         return [
             new TwigFunction('asset_url', [$this, 'getAssetUrl']),
+            new TwigFunction('url', [$this, 'getUrl']),
+            new TwigFunction('base_url', [$this, 'getBaseUrl']),
         ];
     }
 
@@ -49,6 +51,15 @@ class AssetExtension extends AbstractExtension
         $params = $this->request->getServerParams();
 
         return 'http' . '://' . $params['HTTP_HOST'] . '/';
+    }
+
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function getUrl(string $path): string
+    {
+        return $this->getBaseUrl() . $path;
     }
 
 }
