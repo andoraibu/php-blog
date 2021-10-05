@@ -2,6 +2,7 @@
 
 use Blog\LatestPosts;
 use Blog\PostMapper;
+use Blog\Slim\TwigMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -12,6 +13,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
+
 
 $config = include 'config/database.php';
 $dsn = $config['dsn'];
@@ -27,9 +29,8 @@ try {
     die();
 }
 
-
-
 $app = AppFactory::create();
+$app->add(new TwigMiddleware($view));
 
 $app->get('/', function (Request $request, Response $response) use ($view, $connection) {
     $latestPosts = new LatestPosts($connection);
