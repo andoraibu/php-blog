@@ -3,6 +3,7 @@
 use Blog\LatestPosts;
 use Blog\PostMapper;
 use Blog\Slim\TwigMiddleware;
+use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -11,9 +12,14 @@ use Twig\Loader\FilesystemLoader;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$loader = new FilesystemLoader('templates');
-$view = new Environment($loader);
+$builder = new ContainerBuilder();
+$builder->addDefinitions('config/di.php');
 
+$container = $builder->build();
+
+AppFactory::setContainer($container);
+
+$view = $container->get(Environment::class);
 
 $config = include 'config/database.php';
 $dsn = $config['dsn'];
