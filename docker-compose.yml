@@ -1,0 +1,33 @@
+version: '3'
+services:
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - ./:/var/www/html
+
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+  
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+
+networks:
+  myNetwork:
+    driver: bridge
