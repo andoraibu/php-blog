@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dsn' => 'mysql:host=127.0.0.1;port=3306;dbname=blog_php',
+    'dsn' => 'mysql:host=mysql;port=3306;dbname=php_blog',
     'username' => 'root',
     'password' => '1234',
 ];
