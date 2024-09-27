@@ -1,20 +1,10 @@
 {
-    "name": "andrew/blog",
-    "description": "Blog on PHP and MySQL",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Andrew",
-            "email": "elbroandrew@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
     "require": {
-        "slim/slim": "4.*",
-        "slim/psr7": "^1.5",
-        "twig/twig": "^3.3",
         "ext-pdo": "*",
-        "php-di/php-di": "^6.3"
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.7",
+        "php-di/php-di": "^7.0",
+        "slim/twig-view": "^3.4"
     },
     "autoload": {
         "psr-4": {

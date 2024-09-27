@@ -6,8 +6,6 @@ services:
       context: .
       dockerfile: ./php/Dockerfile
     container_name: php
-    # volumes:
-    #   - ./:/var/www/html
     depends_on:
       - mysql
     networks:
@@ -20,7 +18,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./:/var/www/html
+      - .:/var/www/html
       - ./nginx/conf.d:/etc/nginx/conf.d
     networks:
       - myNetwork

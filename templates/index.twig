@@ -5,9 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            {% include 'section/posts.twig' with posts %}
+            {% include 'section/posts.twig' %}
             <div class="row">
-                <a href="{{ url('blog') }}">View all</a>
+                <a href="{{ current_url('blog') }}">View all</a>
             </div>
         </div>
         <div class="col-md-3">
