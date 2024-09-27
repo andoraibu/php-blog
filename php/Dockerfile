@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction
 
+RUN composer update
+
 COPY . .
 
 
