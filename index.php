@@ -25,8 +25,7 @@ $username = $config['username'];
 $password = $config['password'];
 
 try {
-    // $connection = new PDO($dsn, $username, $password);
-    $connection = new PDO('mysql:host=127.0.0.1;dbname=php_blog', "root", "1234");
+    $connection = new PDO($dsn, $username, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch (PDOException $exception){
