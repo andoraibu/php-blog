@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: ./php/Dockerfile
     container_name: php
+    volumes:
+      - .:/var/www/html
     depends_on:
       - mysql
     networks:
