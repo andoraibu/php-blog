@@ -1,7 +1,7 @@
 ---
 - name: Provision Site
   hosts: all
-  remote_user: root
+  remote_user: and
   tasks:
-    # - import_tasks: tasks/create_user.yml
-    - import_tasks: tasks/check_user.yml
+    - import_tasks: tasks/create_user.yml
+    # - import_tasks: tasks/check_user.yml
