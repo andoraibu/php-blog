@@ -44,7 +44,6 @@ $app->get('/', function (Request $request, Response $response) use ($view, $conn
     ]);
 
     $response->getBody()->write($body);
-    // $response->getBody()->write("Hello!");
     return $response;
 });
 

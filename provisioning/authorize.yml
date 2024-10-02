@@ -1,0 +1,9 @@
+---
+- name: Add ssh key
+  hosts: all
+  remote_user: and
+  tasks:
+  - name: Add ssh key for and
+    authorized_key:
+      user: and
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
