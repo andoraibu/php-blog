@@ -1,7 +1,7 @@
 ---
 - name: Create user for deploy
   user:
-    name: and
+    name: deploy
     password: '!'
     # groups:
     #   - docker

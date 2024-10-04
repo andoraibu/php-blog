@@ -1,6 +1,8 @@
 ## Ansible
-- первый раз захожу по паролю
+- первый раз захожу по паролю и устанавливаю ключ через `authorize.yml` для него
 
 `ansible-playbook -i hosts.yml authorize.yml -k`
 
-- затем уже по `ssh`, создав юзера `and` и установив ключ через `make authorize` для него
+- затем уже по `ssh`, создав юзера `and`: 
+
+`make site`
