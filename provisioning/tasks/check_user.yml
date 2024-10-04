@@ -1,7 +1,0 @@
----
-- name: Check user
-  vars:
-    user: and
-  user:
-    name: "{{ user }}"
-    state: present
