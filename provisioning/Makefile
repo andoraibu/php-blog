@@ -11,4 +11,4 @@ up:
 	ansible-playbook -i hosts.yml up.yml -K
 
 down:
-		ansible-playbook -i hosts.yml down.yml -K
+	ansible-playbook -i hosts.yml down.yml -K

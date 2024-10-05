@@ -1,7 +1,6 @@
 ---
 - name: Provision Site
   hosts: all
-  # remote_user: root
   become: yes
 
   tasks:
