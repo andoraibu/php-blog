@@ -1,0 +1,17 @@
+---
+- name: Docker-compose up
+  hosts: all
+  become: true
+  become_user: deploy
+  tasks:
+  - name: Start the services
+    community.docker.docker_compose_v2:
+      project_src: /home/deploy/app
+      build: always
+    register: output
+
+  - name: Show results
+    ansible.builtin.debug:
+      var: output
+
+

@@ -1,0 +1,15 @@
+---
+- name: Docker-compose down
+  hosts: all
+  become: true
+  become_user: deploy
+  tasks:
+  - name: Stop all services
+    community.docker.docker_compose_v2:
+      project_src: /home/deploy/app
+      state: absent
+    register: output
+
+  - name: Show results
+    ansible.builtin.debug:
+      var: output
