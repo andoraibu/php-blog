@@ -2,6 +2,7 @@
 - name: Add ssh key
   hosts: all
   remote_user: admin
+  become: yes
   tasks:
   - name: Add ssh key for deploy user
     authorized_key:
