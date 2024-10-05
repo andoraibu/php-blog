@@ -1,7 +1,7 @@
 ---
 - name: Add ssh key
   hosts: all
-  remote_user: root
+  remote_user: admin
   tasks:
   - name: Add ssh key for deploy user
     authorized_key:

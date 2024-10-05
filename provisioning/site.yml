@@ -1,7 +1,9 @@
 ---
 - name: Provision Site
   hosts: all
-  remote_user: root
+  # remote_user: root
+  become: yes
+
   tasks:
 
     - import_tasks: tasks/setup_docker.yml
