@@ -3,7 +3,7 @@
   hosts: all
   remote_user: root
   tasks:
-  - name: Add ssh key deploy user
+  - name: Add ssh key for deploy user
     authorized_key:
       user: deploy
       key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
