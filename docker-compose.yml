@@ -7,7 +7,7 @@ services:
     container_name: php
     volumes:
       - .:/var/www/html
-    command: sh -c "composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction && composer dump-autoload"
+    command: sh -c "composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction"
     depends_on:
       - mysql
     networks:
