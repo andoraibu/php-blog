@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-install pdo_mysql zip
 
-RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction && composer dump-autoload
+RUN composer install -d /var/www/html/ --prefer-dist --no-dev --no-scripts --no-progress --no-interaction && composer dump-autoload
 
 COPY . .
 
