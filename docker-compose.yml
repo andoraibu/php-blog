@@ -1,6 +1,6 @@
 services:
   php:
-    restart: always
+    restart: on-failure
     build:
       context: .
       dockerfile: ./php/Dockerfile
