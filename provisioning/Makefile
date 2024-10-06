@@ -12,3 +12,6 @@ up:
 
 down:
 	ansible-playbook -i hosts.yml down.yml -K
+
+git-update:
+	ansible-playbook -i hosts.yml update_repo.yml -K

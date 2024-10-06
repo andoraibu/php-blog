@@ -1,0 +1,13 @@
+---
+- name: Git update repo
+  hosts: all
+  become: true
+  become_user: deploy
+  tasks:
+
+  - name: Update PHP blog repo
+    git:    
+      repo: https://github.com/elbroandrew/php-blog
+      dest: /home/deploy/app/
+      update: yes
+      clone: no
