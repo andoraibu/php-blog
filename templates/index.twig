@@ -1,13 +1,13 @@
 {% extends 'base.twig' %}
 
 {% block body %}
-<h3 class="mb-3 mt-3">Latest posts</h3>
+<h3 class="mb-3 mt-3">Посты</h3>
 <div class="container">
     <div class="row">
         <div class="col-md-9">
             {% include 'section/posts.twig' %}
             <div class="row">
-                <a href="{{ url('blog') }}">View all</a>
+                <a href="{{ url('blog') }}">Смотреть все</a>
             </div>
         </div>
         <div class="col-md-3">

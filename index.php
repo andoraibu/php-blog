@@ -35,6 +35,9 @@ try {
 
 $app = AppFactory::create();
 $app->add(new TwigMiddleware($view));
+$app->addBodyParsingMiddleware();
+$app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, true, true);
 
 $app->get('/', function (Request $request, Response $response) use ($view, $connection) {
     $latestPosts = new LatestPosts($connection);
@@ -43,6 +46,12 @@ $app->get('/', function (Request $request, Response $response) use ($view, $conn
         'posts' => $posts
     ]);
 
+    $response->getBody()->write($body);
+    return $response;
+});
+
+$app->get('/post', function (Request $request, Response $response) use ($view) {
+    $body = $view->render('new_post.twig', []);
     $response->getBody()->write($body);
     return $response;
 });
@@ -88,5 +97,7 @@ $app->get('/{url_key}', function (Request $request, Response $response, $args) u
     $response->getBody()->write($body);
     return $response;
 });
+
+
 
 $app->run();
