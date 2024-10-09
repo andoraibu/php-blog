@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <form>
+            <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="postName">Название</label>
                     <input type="text" class="form-control" id="postName" placeholder="Название">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Вставьте фото</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
                 </div>
                 <button type="submit" class="btn btn-primary">Создать</button>
             </form>
