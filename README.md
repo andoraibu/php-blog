@@ -11,6 +11,10 @@
 
 `make clone`
 
+## Изменить права доступа к директории /public/images/
+
+`make perm-access`
+
 ## Собрать и развернуть проект
 
 `make up`
