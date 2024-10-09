@@ -1,0 +1,8 @@
+---
+- name: Change /public/images directory permissions
+  file:
+    path: /public/images
+    state: directory
+    group: www-data
+    mode: 'g+rws'
+    recurse: yes

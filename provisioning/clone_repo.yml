@@ -22,3 +22,11 @@
       repo: https://github.com/elbroandrew/php-blog
       dest: /home/deploy/app/
       clone: yes
+
+  - name: Change 'public/images/' directory permissions
+    file:
+      path: /home/deploy/app/public/images
+      state: directory
+      group: www-data
+      mode: 'g+rws'
+      recurse: yes
